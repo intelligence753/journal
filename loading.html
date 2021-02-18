@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            background: #F0F2F2;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+        }
+
+        embed {
+            width: 45vw;
+            animation-name: show;
+            animation-duration: 2s;
+            animation-timing-function: ease-out;
+        }
+
+        @keyframes show {
+            0% {
+                width: 0;
+                opacity: 0;
+            }
+
+            100% {
+                width: 45vw;
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <div class="wrap">
+        <embed src="./img/logo.svg" />
+    </div>
+
+    <script>
+        const embed = document.querySelector('embed');
+        embed.addEventListener('animationend', () => {
+            document.location.href = "loginRegister.html"
+        });
+    </script>
+
+</body>
+
+</html>

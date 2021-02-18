@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./nav.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Satisfy', cursive;
+        }
+
+        body {
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        html {
+            background-color: #F0F2F2;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* filter */
+        .filter {
+            display: flex;
+            position: absolute;
+            top: 25vh;
+            left: 10vw;
+            justify-content: flex-start;
+            width: 70vw;
+            height: 70vh;
+        }
+
+        .WMY {
+            display: flex;
+        }
+
+        button {
+            color: #F0F2F2;
+            font-family: 'Satisfy', cursive;
+            font-size: 1.5vw;
+            width: 8vw;
+            height: 2vw;
+            border: none;
+            cursor: pointer;
+            background-color: #D9895B;
+            /* box-shadow: 1px 1px black; */
+
+        }
+
+        .wbtn {
+            border-radius: 50px 0 0 50px;
+        }
+
+        .mbtn {
+            border-right: 1px solid #F0F2F2;
+            border-left: 1px solid #F0F2F2;
+        }
+
+        .ybtn {
+            border-radius: 0 50px 50px 0;
+        }
+
+        .calender {
+            display: flex;
+            font-family: 'Satisfy', cursive;
+            font-size: 1.5vw;
+            margin-left: 5vw;
+
+        }
+
+        .datepicker {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fromDay {
+            padding: 5px 5px;
+            width: 30%;
+            background-color: #D9C5AD;
+            border: none;
+            border-radius: 50px;
+            text-align: center;
+            font-size: large;
+        }
+
+        .fromDay:focus {
+            outline: none;
+            border: 2px solid #D9895B;
+
+        }
+
+        .toDay {
+            padding: 5px 5px;
+            width: 30%;
+            background-color: #D9C5AD;
+            border: none;
+            border-radius: 50px;
+            text-align: center;
+            font-size: large;
+        }
+
+        .toDay:focus {
+            outline: none;
+            border: 2px solid #D9895B;
+
+        }
+
+        /* cloud image */
+        .cloud_wrap {
+            background: white;
+            width: 80vw;
+            height: 50vh;
+            position: absolute;
+            left: 50%;
+            top: 60%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header">
+                <div class="wrap">
+                    <embed src="./img/logo.svg" />
+                </div>
+                <button class="menubtn">
+                    <div class="burger">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </div>
+                </button>
+            </div>
+            <nav>
+                <div class="menu">
+                    <ul class="menuList">
+                        <li>
+                            <a href="./today.html">Today</a>
+                        </li>
+                        <li>
+                            <a href="./calender.html">Diaries</a>
+                        </li>
+                        <li>
+                            <a href="./makeCloud.html">Make my cloud</a>
+                        </li>
+                        <li>
+                            <a href="./account.html">Account</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <div class="filter">
+        <div class="WMY">
+            <button class="wbtn">Week</button>
+            <button class="mbtn">Month</button>
+            <button class="ybtn">Year</button>
+        </div>
+        <div class="calender" id='app'>
+            <v-date-picker v-model="range" is-range>
+                <template v-slot="{ inputValue, inputEvents }">
+                    <div class="datepicker">
+                        <span>From&nbsp</span>
+                        <input :value="inputValue.start" v-on="inputEvents.start" class="fromDay" />
+                        <span>&nbsp → &nbsp</span>
+                        <span>To&nbsp</span>
+                        <input :value="inputValue.end" v-on="inputEvents.end" class="toDay" />
+                    </div>
+                </template>
+            </v-date-picker>
+        </div>
+
+    </div>
+
+    <div class="cloud_wrap">
+
+    </div>
+    <script src="./nav.js"></script>
+    <script src='https://unpkg.com/vue/dist/vue.js'></script>
+    <script src='https://unpkg.com/v-calendar'></script>
+
+
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+
+                range: {
+                    start: new Date(2020, 0, 1),
+                    end: new Date(2020, 0, 5)
+                }
+
+            }
+        });
+    </script>
+</body>
+
+</html>

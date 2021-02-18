@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./nav.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <style>
+        body {
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        .container {
+            overflow: hidden;
+        }
+
+        .container::after {
+            content: ' ';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            opacity: 0.5;
+            background-image: url("img/Photo\ by\ OVAN\ from\ Pexels.jpg");
+            background-repeat: no-repeat;
+
+            background-size: cover;
+        }
+
+
+
+
+        /* main */
+        .main {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .register {
+            font-family: 'Satisfy', cursive;
+            background-color: #D9C5AD;
+            width: 25vw;
+            height: 75vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2vw;
+            color: #73563D;
+        }
+
+        .login {
+            font-family: 'Satisfy', cursive;
+            background-color: #73563D;
+            width: 25vw;
+            height: 75vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2vw;
+            color: #D9C5AD;
+        }
+
+        h1 {
+            margin: 2vw 0;
+            font-size: 3vw;
+        }
+
+        .main li {
+            margin: 2vw 0;
+            font-size: 1.5vw;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .main ul {
+            width: 25vw;
+            /* height: 20vh; */
+            margin: 5vh 0;
+        }
+
+        .register input {
+            width: 50%;
+            background-color: transparent;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid #73563D;
+
+        }
+
+        .login input {
+            width: 50%;
+            background-color: transparent;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid #D9C5AD;
+
+        }
+
+        button:focus {
+            outline: none;
+
+        }
+
+        button:hover {
+            -webkit-filter: contrast(70%);
+            -webkit-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            -o-transition: all 1s ease;
+            -ms-transition: all 1s ease;
+            transition: all 1s ease;
+        }
+
+        button {
+            color: #F0F2F2;
+            font-family: 'Satisfy', cursive;
+            font-size: 1.5vw;
+            border-radius: 50px;
+            width: 8vw;
+            height: 2vw;
+            border: none;
+            margin: 5vh 0;
+            cursor: pointer;
+        }
+
+        .regBtn {
+            background-color: #BF5E3B;
+            box-shadow: 0px 2px 5px #6d321d;
+        }
+
+        .logBtn {
+            background-color: #D9895B;
+            box-shadow: 0px 2px 5px #c79273;
+        }
+
+        #remember {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        #remember input {
+            width: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header">
+                <div class="wrap">
+                    <embed src="./img/logo.svg" />
+                </div>
+                <button class="menubtn">
+                    <div class="burger">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </div>
+                </button>
+            </div>
+            <nav>
+                <div class="menu">
+                    <ul class="menuList">
+                        <li>
+                            <a href="./today.html">Today</a>
+                        </li>
+                        <li>
+                            <a href="./calender.html">Diaries</a>
+                        </li>
+                        <li>
+                            <a href="./makeCloud.html">Make my cloud</a>
+                        </li>
+                        <li>
+                            <a href="./account.html">Account</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <div class="main">
+        <div class="register">
+            <h1>REGISTER</h1>
+            <ul>
+                <li>
+                    <span>User name</span>
+                    <input type="text">
+                </li>
+                <li>
+                    <span>Email</span>
+                    <input type="email">
+                </li>
+                <li>
+                    <span>Password</span>
+                    <input type="password">
+                </li>
+                <li>
+                    <span>Comfirm password</span>
+                    <input type="password">
+                </li>
+            </ul>
+            <button class="regBtn">Register</button>
+        </div>
+        <div class="login">
+            <h1>LOGIN</h1>
+            <ul>
+
+                <li>
+                    <span>Email</span>
+                    <input type="email">
+                </li>
+                <li>
+                    <span>Password</span>
+                    <input type="password">
+                </li>
+                <li id="remember">
+                    <input type="checkbox" id="rememberMe" name="rememberMe">
+                    <label for="rememberMe">remember me</label>
+                </li>
+            </ul>
+            <button class="logBtn">login</button>
+        </div>
+    </div>
+
+    <script src="./nav.js"></script>
+</body>
+
+</html>
